@@ -1,0 +1,32 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+def midsquare(numero,iteraciones):
+    list = []
+    for i in range(0,iteraciones): 
+        if len(str(numero))%2==0:
+            total=int(numero)**2
+            valor="0."
+            rep=""
+            ceros=""
+            if len(str(total))%4!=0:
+                tot=((len(str(total))/4)+1)*4-len(str(total))
+                for k in range(0,tot):
+                    ceros+="0"
+                num=ceros+str(total)
+            else:
+                num=str(total)
+            if len(num)!=len(str(numero)):
+                posI=len(str(numero))/2
+                posF=posI+len(str(numero))-1
+                for m in range (posI,posF+1):
+                    valor+=str(num)[m]
+                    rep+=str(num)[m]
+                #print valor
+                list.insert(i,float(valor))
+                numero=rep
+            else:
+                numero=num
+        else:
+            print "debe ser par"
+    return list
